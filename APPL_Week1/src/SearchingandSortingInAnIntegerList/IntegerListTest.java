@@ -75,6 +75,12 @@ public class IntegerListTest
             int newVal2 = scan.nextInt();
             list.replaceAll(oldVal2, newVal2);
             break;
+        case 7:
+            list.sortDescending();
+            break;
+        case 8:
+            list.binarySearchD();
+            break;
         default:
             System.out.println("Sorry, invalid choice");
     }
