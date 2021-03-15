@@ -75,8 +75,7 @@ public class IntegerList{
         }
     }
     
-    /*replaces all occurrences of oldVal in
-the list with newVal.*/
+    /*replaces all occurrences of oldVal in the list with newVal.*/
     public void replaceAll(int oldVal, int newVal){
         for (int i = 0; i < list.length; i++){
             if(list[i] == oldVal ){
@@ -85,8 +84,8 @@ the list with newVal.*/
         }
     }
     
-    /*sorts the list into decreasing (instead of increasing)
-order.*/
+    /*sorts the list into decreasing (instead of increasing) order. using 
+    selection sort*/
     public void sortDecreasing(){
         int maxIndex;
         for (int i=0; i < list.length-1; i++){
@@ -105,8 +104,8 @@ order.*/
         }
     }
     
-    /*that uses a binary search to find the target assuming
-the list is sorted in decreasing order.*/
+    /*that uses a binary search to find the target assuming the list is sorted 
+    in decreasing order.*/
     public int binarySearchD (int target){
         int left = 0;
         int right = list.length - 1;

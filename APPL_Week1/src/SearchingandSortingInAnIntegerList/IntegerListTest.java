@@ -12,24 +12,21 @@ package SearchingandSortingInAnIntegerList;
 //
 // ****************************************************************
 import java.util.Scanner;
-public class IntegerListTest
-{
+public class IntegerListTest{
  static IntegerList list = new IntegerList(10);
  static Scanner scan = new Scanner(System.in);
  //-------------------------------------------------------
  // Create a list, then repeatedly print the menu and do what the
  // user asks until they quit
  //-------------------------------------------------------
- public static void main(String[] args)
- {
- printMenu();
- int choice = scan.nextInt();
- while (choice != 0)
- {
- dispatch(choice);
- printMenu();
- choice = scan.nextInt();
- }
+ public static void main(String[] args){
+    printMenu();
+    int choice = scan.nextInt();
+    while (choice != 0){
+        dispatch(choice);
+        printMenu();
+        choice = scan.nextInt();
+    }
  }
  //-------------------------------------------------------
  // Do what the menu item calls for
