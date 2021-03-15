@@ -68,21 +68,26 @@ public class IntegerList{
         }
     }
     
+    /* that replaces the first occurrence of oldVal in the list with newVal. */
     public void replaceFirst(int oldVal, int newVal){
         if(search(oldVal) != -1){
             list[search(oldVal)] = newVal ;
         }
     }
     
+    /*replaces all occurrences of oldVal in
+the list with newVal.*/
     public void replaceAll(int oldVal, int newVal){
-        for (int i=0; i < list.length-1; i++){
+        for (int i = 0; i < list.length; i++){
             if(list[i] == oldVal ){
                 list[i] = newVal;
             }
         }
     }
     
-    public void sortDescending(){
+    /*sorts the list into decreasing (instead of increasing)
+order.*/
+    public void sortDecreasing(){
         int maxIndex;
         for (int i=0; i < list.length-1; i++){
 
@@ -100,8 +105,24 @@ public class IntegerList{
         }
     }
     
-    public void binarySearchD(){
+    /*that uses a binary search to find the target assuming
+the list is sorted in decreasing order.*/
+    public int binarySearchD (int target){
+        int left = 0;
+        int right = list.length - 1;
+
+        while (left <= right) {
+             int mid = left + (right - left)/2;   
+            if (list[mid] < target) {
+                right = mid - 1;
+            } else if (list[mid] > target) {
+                left  = mid + 1;
+            } else {
+                return mid;
+            }
+        }
         
+        return -1;
     }
      
 } 
