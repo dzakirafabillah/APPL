@@ -26,5 +26,21 @@ public class Commission extends Hourly{
         this.totalSales += totalSales;
     }
     
-    
+    /*compute the pay for hours worked then add to that the pay from commission 
+    on sales.*/
+    @Override
+    public double pay(){
+        double totalPayment = super.pay();
+        totalPayment += (this.totalSales * this.commissionRate);
+        this.totalSales = 0; 
+        return totalPayment;
+   }
+
+    /*all the toString method of the parent class then add the total sales to 
+    that.*/
+     public String toString(){
+        String str = super.toString();
+        str += "\nTotal Sales: " + this.totalSales;
+        return str;
+     }
 }

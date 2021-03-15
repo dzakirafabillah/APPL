@@ -10,6 +10,18 @@ package AnotherTypeOfEmployee;
 //
 // Represents the personnel staff of a particular business.
 //********************************************************************
+
+/*INSTRUCTION*/
+/*
+- Increase the size of the array to 8.
+- Add two commissioned employees to the staffList—make up your own names, 
+addresses, phone numbers and social security numbers. Have one of the employees 
+earn $6.25 per hour and 20% commission and the other one earn $9.75 per hour and
+15% commission.
+- For the first additional employee you added, put the hours worked at 35 and 
+the total sales $400; for the second, put the hours at 40 and the sales at $950.
+
+*/
 public class Staff
 {
  StaffMember[] staffList;
@@ -18,7 +30,7 @@ public class Staff
  //-----------------------------------------------------------------
  public Staff ()
  {
- staffList = new StaffMember[6];
+ staffList = new StaffMember[8];
  staffList[0] = new Executive ("Sam", "123 Main Line",
  "555-0469", "123-45-6789", 2423.07);
  staffList[1] = new Employee ("Carla", "456 Off Line",
@@ -31,6 +43,10 @@ public class Staff
  "555-8374");
  staffList[5] = new Volunteer ("Cliff", "321 Duds Lane",
  "555-7282");
+ staffList[6] = new Commission ("Cliff", "321 Duds Lane",
+ "555-7282", "128-56-1234");
+ staffList[7] = new Commission ("Cliff", "321 Duds Lane",
+ "555-7282", "118-27-7844");
  ((Executive)staffList[0]).awardBonus (500.00);
  ((Hourly)staffList[3]).addHours (40);
  }
