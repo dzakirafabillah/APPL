@@ -16,14 +16,8 @@ package PaintingShapes;
 import java.text.DecimalFormat;
 
 public class PaintThings {
-//-----------------------------------------
-// Creates some shapes and a Paint object
-// and prints the amount of paint needed
-// to paint each shape.
-//-----------------------------------------
 
     public static void main (String[] args){
-
         final double COVERAGE = 350;
         //Declaration
         Paint paint = new Paint(COVERAGE);        
@@ -42,7 +36,5 @@ public class PaintThings {
         System.out.println ("Deck :" +fmt.format(deckAmt)+" gallons");
         System.out.println ("Big Ball :" +fmt.format(ballAmt)+" gallons");
         System.out.println ("Tank :" +fmt.format(tankAmt)+" gallons");
-
     }
-
 }

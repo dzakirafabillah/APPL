@@ -19,7 +19,6 @@ public class Rectangle  extends Shape {
         width = aWidth;
     } 
     
-    //me return Luas permukaan
     public double area() {
         return length * width;
     }
