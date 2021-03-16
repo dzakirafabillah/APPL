@@ -66,7 +66,7 @@ public class IntegerListTest{
                 time2 = System.currentTimeMillis();
                 result = time2 - time1;
                 System.out.println("time required for the operation " + result +
-                        "millisecond");
+                        " millisecond");
                 if (loc != -1)
                     System.out.println("Found at location " + loc);
                 else
@@ -80,7 +80,7 @@ public class IntegerListTest{
                 time2 = System.currentTimeMillis();
                 result = time2 - time1;
                 System.out.println("time required for the operation " + result +
-                        "millisecond");
+                        " millisecond");
                 if (loc != -1)
                     System.out.println("Found at location " + loc);
                 else
@@ -92,7 +92,7 @@ public class IntegerListTest{
                 time2 = System.currentTimeMillis();
                 result = time2 - time1;
                 System.out.println("time required for the operation " + result +
-                        "millisecond");
+                        " millisecond");
                 System.out.println("List has been sorted.");
                 break;
             case 8:
@@ -101,7 +101,7 @@ public class IntegerListTest{
                 time2 = System.currentTimeMillis();
                 result = time2 - time1;
                 System.out.println("time required for the operation " + result +
-                        "millisecond" );
+                        " millisecond" );
                 System.out.println("List has been sorted.");
                 break;
             default:
