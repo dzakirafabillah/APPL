@@ -11,7 +11,7 @@ package AnotherTypeOfEmployee;
  */
 public class Commission extends Hourly{
     double totalSales; //total sales the employee has made
-    double commissionRate; //commission rate (represent the percent in decimal form)
+    double commissionRate; //commission rate (represent the percent in decimal)
     
     /*Constructor*/
     public Commission(String eName, String eAddress, String ePhone,
