@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ThrowingExceptions;
 
-/**
- *
- * @author DZAKIRA
- */
 // ****************************************************************
 // MathUtils.java
-//
+// @author DZAKIRA
 // Provides static mathematical utility functions.
 //
 // ****************************************************************
+
 public class MathUtils extends IllegalArgumentException{
 //-------------------------------------------------------------
 // Returns the factorial of the argument given
@@ -31,6 +23,5 @@ public class MathUtils extends IllegalArgumentException{
                 fac *= i;
             return fac;
         }
-
     }
 }

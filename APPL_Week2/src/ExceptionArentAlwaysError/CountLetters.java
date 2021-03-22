@@ -1,17 +1,13 @@
 package ExceptionArentAlwaysError;
 
-/**
- *
- * @author DZAKIRA
- */
-
 // ****************************************************************
 // CountLetters.java
-//
+// @author DZAKIRA 
 // Reads a words from the standard input and prints the number of
 // occurrences of each letter in that word.
 //
 // ****************************************************************
+
 import java.util.Scanner;
 
 public class CountLetters {

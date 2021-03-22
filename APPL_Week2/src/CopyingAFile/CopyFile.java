@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CopyingAFile;
 
 /**
  * CopyFile.java
- * @author DZAKIRA
+ * @author DZAKIRA 
  * Specification : Write a program that prompts the user for a filename, 
    then opens a Scanner to the file and copies it, a line at a time, to the
    standard output.
