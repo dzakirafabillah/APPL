@@ -22,6 +22,8 @@ public class MathUtils extends IllegalArgumentException{
     public static int factorial (int n){
         if(n<0){
             throw new IllegalArgumentException("invalid input (kurang dari 0)");
+        }else if (n>16){
+            throw new IllegalArgumentException("invalid input (lebih dari 16)");
         }
         else {
             int fac = 1;
