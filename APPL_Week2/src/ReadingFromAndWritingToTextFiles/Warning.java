@@ -63,7 +63,7 @@ public class Warning{
             System.out.println("contain the student name (a single String" +
                                 "with no spaces), the number of semester hours" + 
                                 "earned (an integer), the total quality points" + 
-                                "earned (a double).Every element separated by space");
+                                "earned (a double).\nEvery element separated by space");
         }
     }
 }
