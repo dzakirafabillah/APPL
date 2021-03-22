@@ -14,10 +14,17 @@ public class CirclePanel extends JPanel{
     private int x,y;
     private Color c;
     JButton left, right, up, down;
+    JPanel buttonPanel;
+    private int W_width, W_height;
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
     public CirclePanel(int width, int height){
+        //get Window Size
+        W_width = width;
+        W_height = height;
+        
+        
         // Set coordinates so circle starts in middle
         x = (width/2)-(CIRCLE_SIZE/2);
         y = (height/2)-(CIRCLE_SIZE/2);
@@ -57,7 +64,7 @@ public class CirclePanel extends JPanel{
         
         
         // Need a panel to put the buttons on or they'll be on top of each other.
-        JPanel buttonPanel = new JPanel();
+        buttonPanel = new JPanel();
         buttonPanel.add(left);
         buttonPanel.add(right);
         buttonPanel.add(up);
@@ -98,12 +105,14 @@ public class CirclePanel extends JPanel{
             y += dy;
             System.out.println(x + " " + y);
             repaint();
+            int slidePanelHt = buttonPanel.getSize().height;
             
+            System.out.println(slidePanelHt);
             //disabled when the circle gets all the way to an edge
             if (x < 0) left.setEnabled(false); else left.setEnabled(true);
             if (y < 0) up.setEnabled(false); else up.setEnabled(true);
-            if (x >= 335) right.setEnabled(false); else right.setEnabled(true);
-            if (y >= 185) down.setEnabled(false); else down.setEnabled(true);
+            if (x >= ( W_width -85)) right.setEnabled(false); else right.setEnabled(true);
+            if (y >= ( W_height -135)) down.setEnabled(false); else down.setEnabled(true);
         }
     }
 }
