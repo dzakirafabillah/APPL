@@ -17,36 +17,53 @@ public class Warning{
         int creditHrs; // number of semester hours earned
         double qualityPts; // number of quality points earned
         double gpa; // grade point (quality point) average
-        String line, name, inputName = "students.dat";
-        String outputName = "warning.dat";
+        String name;
+        String inputName = "D:\\APPL\\APPL_Week2\\src\\" + 
+                "ReadingFromAndWritingToTextFiles\\students.dat";
+        String outputName = "D:\\APPL\\APPL_Week2\\src\\" + 
+                "ReadingFromAndWritingToTextFiles\\warning.dat";
+        
+        Scanner inFile = null;
+        PrintWriter outFile = null;
 
         try{
             // Set up scanner to input file
+            inFile = new Scanner(new File(inputName));
             // Set up the output file stream
+            outFile = new PrintWriter(new FileWriter(outputName));
             // Print a header to the output file
-            outFile.println ();
-            outFile.println ("Students on Academic Warning");
-            outFile.println ();
+            outFile.println ("\nStudents on Academic Warning\n");
             // Process the input file, one token at a time
-            while (){
+            while (inFile.hasNext()){
+                String[] input = inFile.nextLine().split(" ");
             // Get the credit hours and quality points and
+                name = input[0];
+                creditHrs = Integer.parseInt(input[1]);
+                qualityPts = Double.parseDouble(input[2]);
+                
             // determine if the student is on warning. If so,
             // write the student data to the output file.
+                gpa = qualityPts/creditHrs;
+                if((gpa < 1.5 && creditHrs < 30) || 
+                    (gpa < 1.75 && creditHrs < 60) ||
+                    (gpa < 2.0)){
+                    
+                    outFile.write(name + " "+ creditHrs + " " + gpa + "\n");
+                }
             }
             // Close output file
-        }
-        catch (FileNotFoundException exception)
-        {
-        System.out.println ("The file " + inputName + " was not found.");
-        }
-        catch (IOException exception)
-        {
-        System.out.println (exception);
-        }
-        catch (NumberFormatException e)
-        {
-        System.out.println ("Format error in input file: " + e);
+             outFile.close();
+        }catch (FileNotFoundException e){
+            System.out.println ("The file " + inputName + " was not found.");
+        }catch (IOException e){
+            System.out.println ("Something goes wrong with the input/output stream");
+        }catch (NumberFormatException e){
+            System.out.println ("Format error in input file ");
+            System.out.println("The Format should be : ");
+            System.out.println("contain the student name (a single String" +
+                                "with no spaces), the number of semester hours" + 
+                                "earned (an integer), the total quality points" + 
+                                "earned (a double).Every element separated by space");
         }
     }
 }
-
