@@ -103,11 +103,8 @@ public class CirclePanel extends JPanel{
         public void actionPerformed(ActionEvent e){
             x += dx;
             y += dy;
-            System.out.println(x + " " + y);
             repaint();
-            int slidePanelHt = buttonPanel.getSize().height;
             
-            System.out.println(slidePanelHt);
             //disabled when the circle gets all the way to an edge
             if (x < 0) left.setEnabled(false); else left.setEnabled(true);
             if (y < 0) up.setEnabled(false); else up.setEnabled(true);
