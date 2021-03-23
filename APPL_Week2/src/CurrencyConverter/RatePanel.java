@@ -9,12 +9,12 @@ package CurrencyConverter;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 public class RatePanel extends JPanel{
     private double[] rate; // exchange rates
     private String[] currencyName;
     private JLabel result;
     private JComboBox choiceCurrencyName;
-    private JLabel labelCost, labelCurrency;
     private JTextField cost = new JTextField("1");
     // ------------------------------------------------------------
     // Sets up a panel to convert cost from one of 6 currencies
@@ -23,14 +23,15 @@ public class RatePanel extends JPanel{
     // the currency, and a label to display the result.
     // ------------------------------------------------------------
     public RatePanel (){
+        //panel
+        this.setBackground(new Color(204,229,255));
+        this.setLayout(new GridLayout(4,4,1,1));
+        this.setBorder(new EmptyBorder(15, 15, 15, 15));
+        
+        //title
         JLabel title = new JLabel ("How much is that in dollars?");
-        title.setAlignmentX (Component.CENTER_ALIGNMENT);
+        title.setAlignmentX (0);
         title.setFont (new Font ("Helvetica", Font.BOLD, 20));
-        
-        labelCost = new JLabel("Cost of an Item");
-        cost.setPreferredSize(new Dimension(100,30));
-        
-        labelCurrency = new JLabel("Currency Name");
         
         // Set up the arrays for the currency conversions
         currencyName = new String[] {"Select the currency..",
@@ -42,22 +43,24 @@ public class RatePanel extends JPanel{
         0.0222, 0.0880};
         
         result = new JLabel (" ------------ ");
+        
+        //cost form 
+        JLabel labelCost = new JLabel("Cost of an Item");
+        cost.setPreferredSize(new Dimension(140,30));
+        
+        //currency
+        JLabel labelCurrency = new JLabel("Currency Name");
         choiceCurrencyName = new JComboBox (currencyName);
         choiceCurrencyName.addActionListener(new ComboListener());
-        
-        this.setBackground(new Color(204,229,255));
-        this.setSize(400, 400);
-//        this.setLayout(new GridBagLayout());
         
         add(title);
         add(result);
         add(labelCost);
         add(cost);
-        add(labelCurrency);
+        add(labelCurrency, "SOUTH");
         add(choiceCurrencyName);
-        
-        
     }
+    
     // ******************************************************
     // Represents an action listener for the combo box.
     // ******************************************************
