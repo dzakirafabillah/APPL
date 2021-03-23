@@ -13,6 +13,9 @@ public class RatePanel extends JPanel{
     private double[] rate; // exchange rates
     private String[] currencyName;
     private JLabel result;
+    private JComboBox choiceCurrencyName;
+    private JLabel labelCost, labelCurrency;
+    private JTextField cost = new JTextField("1");
     // ------------------------------------------------------------
     // Sets up a panel to convert cost from one of 6 currencies
     // into U.S. Dollars. The panel contains a heading, a text
@@ -23,6 +26,12 @@ public class RatePanel extends JPanel{
         JLabel title = new JLabel ("How much is that in dollars?");
         title.setAlignmentX (Component.CENTER_ALIGNMENT);
         title.setFont (new Font ("Helvetica", Font.BOLD, 20));
+        
+        labelCost = new JLabel("Cost of an Item");
+        cost.setPreferredSize(new Dimension(100,30));
+        
+        labelCurrency = new JLabel("Currency Name");
+        
         // Set up the arrays for the currency conversions
         currencyName = new String[] {"Select the currency..",
         "European Euro", "Canadian Dollar",
@@ -31,9 +40,23 @@ public class RatePanel extends JPanel{
         rate = new double [] {0.0, 1.2103, 0.7351,
         0.0091, 0.6969,
         0.0222, 0.0880};
+        
         result = new JLabel (" ------------ ");
-        add (title);
-        add (result);
+        choiceCurrencyName = new JComboBox (currencyName);
+        choiceCurrencyName.addActionListener(new ComboListener());
+        
+        this.setBackground(new Color(204,229,255));
+        this.setSize(400, 400);
+//        this.setLayout(new GridBagLayout());
+        
+        add(title);
+        add(result);
+        add(labelCost);
+        add(cost);
+        add(labelCurrency);
+        add(choiceCurrencyName);
+        
+        
     }
     // ******************************************************
     // Represents an action listener for the combo box.
@@ -45,9 +68,9 @@ public class RatePanel extends JPanel{
         // displays the value in U.S. Dollars.
         // --------------------------------------------------
         public void actionPerformed (ActionEvent event){
-            int index = 0;
-            result.setText ("1 " + currencyName[index] +
-            " = " + rate[index] + " U.S. Dollars");
+            int index = choiceCurrencyName.getSelectedIndex();
+            result.setText (cost.getText() +" " + currencyName[index] +
+            " = " + (rate[index] * Integer.valueOf(cost.getText())) + " U.S. Dollars");
         }
     }
 }
