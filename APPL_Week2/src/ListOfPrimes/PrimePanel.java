@@ -29,14 +29,19 @@ public class PrimePanel extends JPanel{
         primeList = new JTextArea (10, 30);
         scrollPane = new JScrollPane(primeList);
         
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         // Add the components to the panel
         add (heading);
         add (inputLabel);
         add (number);
         add (computeButton);
-        add (primeList);
+//        add (primeList);
+        add(scrollPane);
         setPreferredSize (new Dimension (400, 320));
-        setBackground (Color.yellow);
+        setBackground(new java.awt.Color(136, 189, 188));
+        
+        //add Listener to the button
+        computeButton.addActionListener(new ButtonListener());
     }
     
     // *****************************************************************
@@ -49,8 +54,10 @@ public class PrimePanel extends JPanel{
         // -----------------------------------------------------------
         public void actionPerformed (ActionEvent event){
             String textNum = number.getText();
-            int num = Integer.parseInt (textNum);
-            String ans = "";
+            
+            try{
+                int num = Integer.parseInt (textNum);
+                String ans = "";
 
             int count = 0;
             if (num < 2)
@@ -61,8 +68,8 @@ public class PrimePanel extends JPanel{
                 for (int i = 3; i <= num; i += 2){
                     boolean foundDivisor = false;
                     int j = 3;
-                    while (j < i && !foundDivisor){
-                        if (i % j == 0)
+                    while ((j < i) && !foundDivisor){
+                        if (i % j == 0 || j == Math.sqrt(i))
                             foundDivisor = true;
                         else
                             j++;
@@ -77,6 +84,9 @@ public class PrimePanel extends JPanel{
                 }
             }
             primeList.setText (ans);
+            }catch(java.lang.NumberFormatException e){
+                 JOptionPane.showMessageDialog(null, "You should input an integer");
+            }
         }
     }
 }
